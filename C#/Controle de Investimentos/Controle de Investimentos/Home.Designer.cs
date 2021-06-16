@@ -1,5 +1,5 @@
 ﻿
-namespace Investimentos.UI
+namespace Controle_de_Investimentos
 {
     partial class Home
     {
@@ -32,10 +32,6 @@ namespace Investimentos.UI
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
-            this.swingTradeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.adcionarTransaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editarTransaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.relatórioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fileMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -87,6 +83,7 @@ namespace Investimentos.UI
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.swingTradeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -105,38 +102,9 @@ namespace Investimentos.UI
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.MdiWindowListItem = this.windowsMenu;
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1017, 24);
+            this.menuStrip.Size = new System.Drawing.Size(1264, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
-            // 
-            // swingTradeToolStripMenuItem
-            // 
-            this.swingTradeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.adcionarTransaçãoToolStripMenuItem,
-            this.editarTransaçãoToolStripMenuItem,
-            this.relatórioToolStripMenuItem});
-            this.swingTradeToolStripMenuItem.Name = "swingTradeToolStripMenuItem";
-            this.swingTradeToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
-            this.swingTradeToolStripMenuItem.Text = "Swing Trade";
-            // 
-            // adcionarTransaçãoToolStripMenuItem
-            // 
-            this.adcionarTransaçãoToolStripMenuItem.Name = "adcionarTransaçãoToolStripMenuItem";
-            this.adcionarTransaçãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.adcionarTransaçãoToolStripMenuItem.Text = "Adcionar transação";
-            // 
-            // editarTransaçãoToolStripMenuItem
-            // 
-            this.editarTransaçãoToolStripMenuItem.Name = "editarTransaçãoToolStripMenuItem";
-            this.editarTransaçãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.editarTransaçãoToolStripMenuItem.Text = "Editar transação";
-            // 
-            // relatórioToolStripMenuItem
-            // 
-            this.relatórioToolStripMenuItem.Name = "relatórioToolStripMenuItem";
-            this.relatórioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.relatórioToolStripMenuItem.Text = "Relatório";
-            this.relatórioToolStripMenuItem.Click += new System.EventHandler(this.relatórioToolStripMenuItem_Click);
             // 
             // fileMenu
             // 
@@ -475,7 +443,7 @@ namespace Investimentos.UI
             this.helpToolStripButton});
             this.toolStrip.Location = new System.Drawing.Point(0, 24);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(1017, 25);
+            this.toolStrip.Size = new System.Drawing.Size(1264, 25);
             this.toolStrip.TabIndex = 1;
             this.toolStrip.Text = "ToolStrip";
             // 
@@ -551,7 +519,7 @@ namespace Investimentos.UI
             this.toolStripStatusLabel});
             this.statusStrip.Location = new System.Drawing.Point(0, 659);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(1017, 22);
+            this.statusStrip.Size = new System.Drawing.Size(1264, 22);
             this.statusStrip.TabIndex = 2;
             this.statusStrip.Text = "StatusStrip";
             // 
@@ -561,17 +529,25 @@ namespace Investimentos.UI
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
+            // swingTradeToolStripMenuItem
+            // 
+            this.swingTradeToolStripMenuItem.Name = "swingTradeToolStripMenuItem";
+            this.swingTradeToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
+            this.swingTradeToolStripMenuItem.Text = "Swing Trade";
+            this.swingTradeToolStripMenuItem.Click += new System.EventHandler(this.swingTradeToolStripMenuItem_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1017, 681);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.menuStrip);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
             this.Name = "Home";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
@@ -639,9 +615,6 @@ namespace Investimentos.UI
         private System.Windows.Forms.ToolStripButton helpToolStripButton;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.ToolStripMenuItem swingTradeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem adcionarTransaçãoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editarTransaçãoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem relatórioToolStripMenuItem;
     }
 }
 

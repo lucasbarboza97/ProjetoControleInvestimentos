@@ -8,17 +8,58 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Investimentos.UI
+namespace Controle_de_Investimentos
 {
     public partial class Home : Form
     {
         private int childFormNumber = 0;
-
         public Home()
         {
             InitializeComponent();
         }
+        /*******************************************************************************************************
+         **                                             Swing Trade                                           **
+         *******************************************************************************************************/
 
+        /************************************ Carrega o form do Swing Trade ************************************/
+        private void swingTradeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SwingTrade swingTrade = new SwingTrade();
+            swingTrade.MdiParent = this;
+            swingTrade.Text = "Janela " + childFormNumber++;
+            swingTrade.Show();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /****************************************************************************************************************************
+         **                                              Padrão do MDIParents                                                      **
+         ****************************************************************************************************************************/
         private void ShowNewForm(object sender, EventArgs e)
         {
             Form childForm = new Form();
@@ -104,14 +145,10 @@ namespace Investimentos.UI
             }
         }
 
-        /********************************************************************************************************************************
-         **                                     Abre a janela de relatórios do Swing Trade                                             **
-         ********************************************************************************************************************************/
-        private void relatórioToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            SwingTrade swingTrade = new SwingTrade();
-            swingTrade.MdiParent = this;
-            swingTrade.Show();
-        }
+
+        /****************************************************************************************************************************
+         **                                              Ainda não usado                                                           **
+         ****************************************************************************************************************************/
+
     }
 }

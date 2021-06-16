@@ -16,7 +16,7 @@ namespace Controle_de_Investimentos
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new HomeControleInvestimentos());
+            Application.Run(new Home());
         }
     }
 }
