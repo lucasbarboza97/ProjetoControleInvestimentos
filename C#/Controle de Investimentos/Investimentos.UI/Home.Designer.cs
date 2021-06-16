@@ -32,6 +32,10 @@ namespace Investimentos.UI
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.swingTradeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adcionarTransaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarTransaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.relatórioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fileMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -83,10 +87,6 @@ namespace Investimentos.UI
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.swingTradeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.adcionarTransaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editarTransaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.relatórioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -108,6 +108,35 @@ namespace Investimentos.UI
             this.menuStrip.Size = new System.Drawing.Size(1017, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
+            // 
+            // swingTradeToolStripMenuItem
+            // 
+            this.swingTradeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.adcionarTransaçãoToolStripMenuItem,
+            this.editarTransaçãoToolStripMenuItem,
+            this.relatórioToolStripMenuItem});
+            this.swingTradeToolStripMenuItem.Name = "swingTradeToolStripMenuItem";
+            this.swingTradeToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
+            this.swingTradeToolStripMenuItem.Text = "Swing Trade";
+            // 
+            // adcionarTransaçãoToolStripMenuItem
+            // 
+            this.adcionarTransaçãoToolStripMenuItem.Name = "adcionarTransaçãoToolStripMenuItem";
+            this.adcionarTransaçãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.adcionarTransaçãoToolStripMenuItem.Text = "Adcionar transação";
+            // 
+            // editarTransaçãoToolStripMenuItem
+            // 
+            this.editarTransaçãoToolStripMenuItem.Name = "editarTransaçãoToolStripMenuItem";
+            this.editarTransaçãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editarTransaçãoToolStripMenuItem.Text = "Editar transação";
+            // 
+            // relatórioToolStripMenuItem
+            // 
+            this.relatórioToolStripMenuItem.Name = "relatórioToolStripMenuItem";
+            this.relatórioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.relatórioToolStripMenuItem.Text = "Relatório";
+            this.relatórioToolStripMenuItem.Click += new System.EventHandler(this.relatórioToolStripMenuItem_Click);
             // 
             // fileMenu
             // 
@@ -531,34 +560,6 @@ namespace Investimentos.UI
             this.toolStripStatusLabel.Name = "toolStripStatusLabel";
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
-            // 
-            // swingTradeToolStripMenuItem
-            // 
-            this.swingTradeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.adcionarTransaçãoToolStripMenuItem,
-            this.editarTransaçãoToolStripMenuItem,
-            this.relatórioToolStripMenuItem});
-            this.swingTradeToolStripMenuItem.Name = "swingTradeToolStripMenuItem";
-            this.swingTradeToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
-            this.swingTradeToolStripMenuItem.Text = "Swing Trade";
-            // 
-            // adcionarTransaçãoToolStripMenuItem
-            // 
-            this.adcionarTransaçãoToolStripMenuItem.Name = "adcionarTransaçãoToolStripMenuItem";
-            this.adcionarTransaçãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.adcionarTransaçãoToolStripMenuItem.Text = "Adcionar transação";
-            // 
-            // editarTransaçãoToolStripMenuItem
-            // 
-            this.editarTransaçãoToolStripMenuItem.Name = "editarTransaçãoToolStripMenuItem";
-            this.editarTransaçãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.editarTransaçãoToolStripMenuItem.Text = "Editar transação";
-            // 
-            // relatórioToolStripMenuItem
-            // 
-            this.relatórioToolStripMenuItem.Name = "relatórioToolStripMenuItem";
-            this.relatórioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.relatórioToolStripMenuItem.Text = "Relatório";
             // 
             // Home
             // 

@@ -49,6 +49,7 @@ namespace Investimentos.UI
             this.Controls.Add(this.dataGridView1);
             this.Name = "SwingTrade";
             this.Text = "SwingTrade";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.SwingTrade_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

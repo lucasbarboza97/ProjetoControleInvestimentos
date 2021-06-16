@@ -103,5 +103,15 @@ namespace Investimentos.UI
                 childForm.Close();
             }
         }
+
+        /********************************************************************************************************************************
+         **                                     Abre a janela de relatórios do Swing Trade                                             **
+         ********************************************************************************************************************************/
+        private void relatórioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SwingTrade swingTrade = new SwingTrade();
+            swingTrade.MdiParent = this;
+            swingTrade.Show();
+        }
     }
 }
