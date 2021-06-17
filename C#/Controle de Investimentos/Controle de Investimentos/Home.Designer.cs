@@ -32,6 +32,7 @@ namespace Controle_de_Investimentos
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.swingTradeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fileMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -83,7 +84,8 @@ namespace Controle_de_Investimentos
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.swingTradeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.transaçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -105,6 +107,16 @@ namespace Controle_de_Investimentos
             this.menuStrip.Size = new System.Drawing.Size(1264, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
+            // 
+            // swingTradeToolStripMenuItem
+            // 
+            this.swingTradeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.transaçõesToolStripMenuItem,
+            this.relatóriosToolStripMenuItem});
+            this.swingTradeToolStripMenuItem.Name = "swingTradeToolStripMenuItem";
+            this.swingTradeToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
+            this.swingTradeToolStripMenuItem.Text = "Swing Trade";
+            this.swingTradeToolStripMenuItem.Click += new System.EventHandler(this.swingTradeToolStripMenuItem_Click);
             // 
             // fileMenu
             // 
@@ -529,12 +541,18 @@ namespace Controle_de_Investimentos
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // swingTradeToolStripMenuItem
+            // transaçõesToolStripMenuItem
             // 
-            this.swingTradeToolStripMenuItem.Name = "swingTradeToolStripMenuItem";
-            this.swingTradeToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
-            this.swingTradeToolStripMenuItem.Text = "Swing Trade";
-            this.swingTradeToolStripMenuItem.Click += new System.EventHandler(this.swingTradeToolStripMenuItem_Click);
+            this.transaçõesToolStripMenuItem.Name = "transaçõesToolStripMenuItem";
+            this.transaçõesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.transaçõesToolStripMenuItem.Text = "Transações";
+            this.transaçõesToolStripMenuItem.Click += new System.EventHandler(this.transaçõesToolStripMenuItem_Click);
+            // 
+            // relatóriosToolStripMenuItem
+            // 
+            this.relatóriosToolStripMenuItem.Name = "relatóriosToolStripMenuItem";
+            this.relatóriosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.relatóriosToolStripMenuItem.Text = "Relatórios";
             // 
             // Home
             // 
@@ -615,6 +633,8 @@ namespace Controle_de_Investimentos
         private System.Windows.Forms.ToolStripButton helpToolStripButton;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.ToolStripMenuItem swingTradeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem transaçõesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem relatóriosToolStripMenuItem;
     }
 }
 

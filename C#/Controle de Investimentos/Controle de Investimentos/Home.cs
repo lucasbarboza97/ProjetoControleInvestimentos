@@ -22,7 +22,8 @@ namespace Controle_de_Investimentos
          *******************************************************************************************************/
 
         /************************************ Carrega o form do Swing Trade ************************************/
-        private void swingTradeToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private void transaçõesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SwingTrade swingTrade = new SwingTrade();
             swingTrade.MdiParent = this;
@@ -146,9 +147,14 @@ namespace Controle_de_Investimentos
         }
 
 
+
+
         /****************************************************************************************************************************
          **                                              Ainda não usado                                                           **
          ****************************************************************************************************************************/
+        private void swingTradeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }
