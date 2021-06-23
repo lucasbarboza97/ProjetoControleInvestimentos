@@ -13,6 +13,10 @@ namespace Controle_de_Investimentos
 {
     public partial class SwingTrade : Form
     {
+        /*********************** Comandos mySQL ***********************/
+        string carregaGridMySql = "SELECT a.codigo, t.data_compra, t.data_venda, t.id FROM transacoes t JOIN acoes a ON(t.cod_acao = a.id)";
+        string buscaPorCodigoAcaoMysql = "'SELECT a.codigo, t.data_compra, t.data_venda, t.id FROM acoes a JOIN transacoes t ON(t.cod_acao = a.id) WHERE a.codigo LIKE %' + tstBuscar.Text + %'";
+
         public SwingTrade()
         {
             InitializeComponent();
@@ -23,7 +27,7 @@ namespace Controle_de_Investimentos
 
 
         /*********************** Carrega itens no datagrid ***********************/
-        private void carregaDataGrid()
+        private void carregaDataGrid(String sql)
         {
             /*********************** Variáveis ***********************/
 
@@ -47,7 +51,6 @@ namespace Controle_de_Investimentos
 
 
             /*********************** Conexão com BD e comando select ***********************/
-            string sql = "SELECT a.codigo, t.data_compra, t.data_venda, t.id FROM transacoes t JOIN acoes a ON(t.cod_acao = a.id)";
             MySqlConnection con = new MySqlConnection();
             MySqlCommand cmd = new MySqlCommand(sql, con);
             con.ConnectionString = Properties.Settings.Default.connectionString;
@@ -83,6 +86,49 @@ namespace Controle_de_Investimentos
                 con.Close();
             }
         }
+
+        /*********************** Método para buscar pelo nome da ação ***********************/
+        /*private void buscarCodigoAcao() {
+            
+
+            string sql = "SELECT a.codigo, t.data_compra, t.data_venda, t.id FROM acoes a JOIN transacoes t ON(t.cod_acao = a.id) WHERE a.codigo LIKE '%" + tstBuscar.Text + "%'";
+
+            MySqlConnection con = new MySqlConnection();
+            MySqlCommand cmd = new MySqlCommand(sql, con);
+            con.ConnectionString = Properties.Settings.Default.connectionString;
+            cmd.CommandType = CommandType.Text;
+            MySqlDataReader reader;
+            con.Open();
+
+            if (tstBuscar.Text == string.Empty)
+            {
+                MessageBox.Show("Preencha com algum nome!");
+            }
+            else
+            {
+                try
+                {
+                    reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        while (reader.Read())
+                        {
+                            string codigo_acao = reader[0].ToString();
+                            string data_compra = reader[1].ToString();
+                            string data_venda = reader[2].ToString();
+                            string id = reader[3].ToString();
+
+                            dataGridView1.Rows.Add(codigo_acao, data_compra, data_venda, id);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+        }
+        */
 
 
         /*********************** Seleciona item no datagrid e exibe ao lado ***********************/
@@ -140,12 +186,17 @@ namespace Controle_de_Investimentos
         /*********************** Classes padrões do form ***********************/
         private void SwingTrade_Load(object sender, EventArgs e)
         {
-            carregaDataGrid();
+            carregaDataGrid(carregaGridMySql);
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             selecionaAtivo();
+        }
+
+        private void tsbPesquisar_Click(object sender, EventArgs e)
+        {
+            carregaDataGrid(buscaPorCodigoAcaoMysql);
         }
 
 

@@ -115,6 +115,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="SwingTrade.resx">
       <DependentUpon>SwingTrade.cs</DependentUpon>
@@ -132,6 +133,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\botao-anexar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\salvar-arquivos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\botao-editar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\botao-cancelar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\botao-de-zoom.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
