@@ -15,7 +15,7 @@ namespace Controle_de_Investimentos
     {
         /*********************** Comandos mySQL ***********************/
         string carregaGridMySql = "SELECT a.codigo, t.data_compra, t.data_venda, t.id FROM transacoes t JOIN acoes a ON(t.cod_acao = a.id)";
-        string buscaPorCodigoAcaoMysql = "'SELECT a.codigo, t.data_compra, t.data_venda, t.id FROM acoes a JOIN transacoes t ON(t.cod_acao = a.id) WHERE a.codigo LIKE %' + tstBuscar.Text + %'";
+
 
         public SwingTrade()
         {
@@ -196,6 +196,8 @@ namespace Controle_de_Investimentos
 
         private void tsbPesquisar_Click(object sender, EventArgs e)
         {
+            string buscaPorCodigoAcaoMysql = "SELECT a.codigo, t.data_compra, t.data_venda, t.id FROM acoes a JOIN transacoes t ON(t.cod_acao = a.id) WHERE a.codigo LIKE '" + tstBuscar.Text + "';";
+            dataGridView1.Rows.Clear();
             carregaDataGrid(buscaPorCodigoAcaoMysql);
         }
 
