@@ -8,14 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Drawing.Drawing2D;
+using System.Runtime.InteropServices;
+
 
 namespace Controle_de_Investimentos
 {
     public partial class SwingTrade : Form
     {
-        /*********************** Comandos mySQL ***********************/
         string carregaGridMySql = "SELECT a.codigo, t.data_compra, t.data_venda, t.id FROM transacoes t JOIN acoes a ON(t.cod_acao = a.id)";
-
+        
+        bool novo;
 
         public SwingTrade()
         {
@@ -24,13 +27,11 @@ namespace Controle_de_Investimentos
 
 
         /*********************** Classes reutilizáveis ***********************/        
-
-
         /*********************** Carrega itens no datagrid ***********************/
         private void carregaDataGrid(String sql)
         {
-            /*********************** Variáveis ***********************/
 
+            /*********************** Variáveis ***********************/
             string data_compra;
             string data_venda;
             string codigo_acao;
@@ -48,6 +49,10 @@ namespace Controle_de_Investimentos
             dataGridView1.Columns[3].Name = "Código da transação";
 
             dataGridView1.Columns[3].Visible = false;
+            
+            tsbSalvar.Enabled = false;
+            btnCancelar.Visible = false;
+            btnSalvar.Visible = false;
 
 
             /*********************** Conexão com BD e comando select ***********************/
@@ -86,50 +91,6 @@ namespace Controle_de_Investimentos
                 con.Close();
             }
         }
-
-        /*********************** Método para buscar pelo nome da ação ***********************/
-        /*private void buscarCodigoAcao() {
-            
-
-            string sql = "SELECT a.codigo, t.data_compra, t.data_venda, t.id FROM acoes a JOIN transacoes t ON(t.cod_acao = a.id) WHERE a.codigo LIKE '%" + tstBuscar.Text + "%'";
-
-            MySqlConnection con = new MySqlConnection();
-            MySqlCommand cmd = new MySqlCommand(sql, con);
-            con.ConnectionString = Properties.Settings.Default.connectionString;
-            cmd.CommandType = CommandType.Text;
-            MySqlDataReader reader;
-            con.Open();
-
-            if (tstBuscar.Text == string.Empty)
-            {
-                MessageBox.Show("Preencha com algum nome!");
-            }
-            else
-            {
-                try
-                {
-                    reader = cmd.ExecuteReader();
-                    if (reader.Read())
-                    {
-                        while (reader.Read())
-                        {
-                            string codigo_acao = reader[0].ToString();
-                            string data_compra = reader[1].ToString();
-                            string data_venda = reader[2].ToString();
-                            string id = reader[3].ToString();
-
-                            dataGridView1.Rows.Add(codigo_acao, data_compra, data_venda, id);
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
-            }
-        }
-        */
-
 
         /*********************** Seleciona item no datagrid e exibe ao lado ***********************/
         public void selecionaAtivo ()
@@ -181,6 +142,66 @@ namespace Controle_de_Investimentos
             }
         }
 
+        /*********************** Função para pesquisar açoes pelo código ***********************/
+        public void pesquisar()
+        {
+            string buscaPorCodigoAcaoMysql = "SELECT a.codigo, t.data_compra, t.data_venda, t.id FROM acoes a JOIN transacoes t ON(t.cod_acao = a.id) WHERE a.codigo LIKE '%" + tstBuscar.Text + "%';";
+            dataGridView1.Rows.Clear();
+            carregaDataGrid(buscaPorCodigoAcaoMysql);
+            tstBuscar.Text = "";
+            dataGridView1.Focus();
+        }
+
+        /*********************** Função para cancelar - Recarrega o load ***********************/
+        public void cancelar()
+        {
+            tsbPesquisar.Enabled = true;
+            tstBuscar.Enabled = true;
+            tsbEditar.Enabled = true;
+            tsbCadastrar.Enabled = true;
+            tsbPesquisar.Enabled = true;
+            dataGridView1.Rows.Clear();
+            carregaDataGrid(carregaGridMySql);
+
+        }
+
+        /*********************** Função para habilitar os campos e limpá-los para cadastrar uma nova transação ***********************/
+        public void cadastrar()
+        {
+            dataGridView1.Rows.Clear();
+
+            txtCodigoAcao.Text = "";
+            txtDarf.Text = "";
+            txtQtdCompra.Text = "";
+            txtQtdVenda.Text = "";
+            txtTaxaCorretagem.Text = "";
+            txtValorUnitarioCompra.Text = "";
+            txtValorUnitarioVenda.Text = "";
+            mskDataCompra.Text = "";
+            mskDataVenda.Text = "";
+            txtLucro.Text = "";
+            txtValorTotalCompra.Text = "";
+            txtValorTotalVenda.Text = "";
+
+            txtCodigoAcao.Enabled = true;
+            txtDarf.Enabled = true;
+            txtQtdCompra.Enabled = true;
+            txtQtdVenda.Enabled = true;
+            txtTaxaCorretagem.Enabled = true;
+            txtValorUnitarioCompra.Enabled = true;
+            txtValorUnitarioVenda.Enabled = true;
+            mskDataCompra.Enabled = true;
+            mskDataVenda.Enabled = true;
+            tsbPesquisar.Enabled = false;
+            tstBuscar.Enabled = false;
+            tsbEditar.Enabled = false;
+            tsbCadastrar.Enabled = false;
+            tsbSalvar.Enabled = true;
+            btnSalvar.Visible = true;
+            btnCancelar.Visible = true;
+            novo = true;
+        }
+        /*********************** Função para salvar os campos e enviar insert para o BD ***********************/
 
 
         /*********************** Classes padrões do form ***********************/
@@ -196,9 +217,30 @@ namespace Controle_de_Investimentos
 
         private void tsbPesquisar_Click(object sender, EventArgs e)
         {
-            string buscaPorCodigoAcaoMysql = "SELECT a.codigo, t.data_compra, t.data_venda, t.id FROM acoes a JOIN transacoes t ON(t.cod_acao = a.id) WHERE a.codigo LIKE '" + tstBuscar.Text + "';";
-            dataGridView1.Rows.Clear();
-            carregaDataGrid(buscaPorCodigoAcaoMysql);
+            pesquisar();
+        }
+
+        private void tsbCadastrar_Click(object sender, EventArgs e)
+        {
+            cadastrar();
+        }
+
+        private void tsbCancelar_Click(object sender, EventArgs e)
+        {
+            cancelar();
+        }
+
+        private void tstBuscar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                pesquisar();  
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            cancelar();
         }
 
 

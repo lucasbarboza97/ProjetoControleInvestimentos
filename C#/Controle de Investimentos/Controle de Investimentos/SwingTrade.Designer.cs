@@ -56,14 +56,16 @@ namespace Controle_de_Investimentos
             this.label12 = new System.Windows.Forms.Label();
             this.txtLucro = new System.Windows.Forms.TextBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.tslPesquisar = new System.Windows.Forms.ToolStripLabel();
-            this.tstBuscar = new System.Windows.Forms.ToolStripTextBox();
             this.tsbCadastrar = new System.Windows.Forms.ToolStripButton();
             this.tsbSalvar = new System.Windows.Forms.ToolStripButton();
             this.tsbEditar = new System.Windows.Forms.ToolStripButton();
             this.tsbCancelar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tslPesquisar = new System.Windows.Forms.ToolStripLabel();
+            this.tstBuscar = new System.Windows.Forms.ToolStripTextBox();
             this.tsbPesquisar = new System.Windows.Forms.ToolStripButton();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnSalvar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -349,27 +351,6 @@ namespace Controle_de_Investimentos
             this.toolStrip1.TabIndex = 26;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
-            // 
-            // tslPesquisar
-            // 
-            this.tslPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tslPesquisar.Margin = new System.Windows.Forms.Padding(5, 1, 0, 2);
-            this.tslPesquisar.Name = "tslPesquisar";
-            this.tslPesquisar.Size = new System.Drawing.Size(183, 24);
-            this.tslPesquisar.Text = "Digite o código da ação: ";
-            // 
-            // tstBuscar
-            // 
-            this.tstBuscar.AutoSize = false;
-            this.tstBuscar.AutoToolTip = true;
-            this.tstBuscar.Name = "tstBuscar";
-            this.tstBuscar.Size = new System.Drawing.Size(300, 25);
-            // 
             // tsbCadastrar
             // 
             this.tsbCadastrar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -380,6 +361,7 @@ namespace Controle_de_Investimentos
             this.tsbCadastrar.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.tsbCadastrar.Size = new System.Drawing.Size(34, 24);
             this.tsbCadastrar.Text = "Cadastrar";
+            this.tsbCadastrar.Click += new System.EventHandler(this.tsbCadastrar_Click);
             // 
             // tsbSalvar
             // 
@@ -413,6 +395,30 @@ namespace Controle_de_Investimentos
             this.tsbCancelar.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.tsbCancelar.Size = new System.Drawing.Size(34, 24);
             this.tsbCancelar.Text = "Cancelar";
+            this.tsbCancelar.Click += new System.EventHandler(this.tsbCancelar_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 27);
+            // 
+            // tslPesquisar
+            // 
+            this.tslPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tslPesquisar.Margin = new System.Windows.Forms.Padding(5, 1, 0, 2);
+            this.tslPesquisar.Name = "tslPesquisar";
+            this.tslPesquisar.Size = new System.Drawing.Size(183, 24);
+            this.tslPesquisar.Text = "Digite o código da ação: ";
+            // 
+            // tstBuscar
+            // 
+            this.tstBuscar.AutoSize = false;
+            this.tstBuscar.AutoToolTip = true;
+            this.tstBuscar.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.tstBuscar.Name = "tstBuscar";
+            this.tstBuscar.Size = new System.Drawing.Size(300, 25);
+            this.tstBuscar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tstBuscar_KeyDown);
             // 
             // tsbPesquisar
             // 
@@ -425,11 +431,46 @@ namespace Controle_de_Investimentos
             this.tsbPesquisar.Text = "Pesquisar";
             this.tsbPesquisar.Click += new System.EventHandler(this.tsbPesquisar_Click);
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnCancelar.BackColor = System.Drawing.Color.Red;
+            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelar.FlatAppearance.BorderSize = 0;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.White;
+            this.btnCancelar.Location = new System.Drawing.Point(855, 567);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(139, 56);
+            this.btnCancelar.TabIndex = 27;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnSalvar
+            // 
+            this.btnSalvar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSalvar.BackColor = System.Drawing.Color.Lime;
+            this.btnSalvar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSalvar.FlatAppearance.BorderSize = 0;
+            this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalvar.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalvar.ForeColor = System.Drawing.Color.White;
+            this.btnSalvar.Location = new System.Drawing.Point(1035, 567);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(139, 56);
+            this.btnSalvar.TabIndex = 28;
+            this.btnSalvar.Text = "Salvar";
+            this.btnSalvar.UseVisualStyleBackColor = false;
+            // 
             // SwingTrade
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.btnSalvar);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.txtLucro);
@@ -504,5 +545,7 @@ namespace Controle_de_Investimentos
         private System.Windows.Forms.ToolStripLabel tslPesquisar;
         private System.Windows.Forms.ToolStripTextBox tstBuscar;
         private System.Windows.Forms.ToolStripButton tsbPesquisar;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnSalvar;
     }
 }
