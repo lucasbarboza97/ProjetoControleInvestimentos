@@ -56,16 +56,19 @@ namespace Controle_de_Investimentos
             this.label12 = new System.Windows.Forms.Label();
             this.txtLucro = new System.Windows.Forms.TextBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.tsbCadastrar = new System.Windows.Forms.ToolStripButton();
-            this.tsbSalvar = new System.Windows.Forms.ToolStripButton();
-            this.tsbEditar = new System.Windows.Forms.ToolStripButton();
-            this.tsbCancelar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tslPesquisar = new System.Windows.Forms.ToolStripLabel();
             this.tstBuscar = new System.Windows.Forms.ToolStripTextBox();
-            this.tsbPesquisar = new System.Windows.Forms.ToolStripButton();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbCadastrar = new System.Windows.Forms.ToolStripButton();
+            this.tsbEditar = new System.Windows.Forms.ToolStripButton();
+            this.tsbSalvar = new System.Windows.Forms.ToolStripButton();
+            this.tsbExcluir = new System.Windows.Forms.ToolStripButton();
+            this.tsbCancelar = new System.Windows.Forms.ToolStripButton();
+            this.tsbPesquisar = new System.Windows.Forms.ToolStripButton();
+            this.tsbRecarregar = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -336,66 +339,23 @@ namespace Controle_de_Investimentos
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbCadastrar,
-            this.tsbSalvar,
             this.tsbEditar,
+            this.tsbSalvar,
+            this.tsbExcluir,
             this.tsbCancelar,
             this.toolStripSeparator1,
             this.tslPesquisar,
             this.tstBuscar,
-            this.tsbPesquisar});
+            this.tsbPesquisar,
+            this.toolStripSeparator2,
+            this.tsbRecarregar});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0);
             this.toolStrip1.ShowItemToolTips = false;
-            this.toolStrip1.Size = new System.Drawing.Size(713, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(838, 27);
             this.toolStrip1.TabIndex = 26;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // tsbCadastrar
-            // 
-            this.tsbCadastrar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbCadastrar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsbCadastrar.Image = global::Controle_de_Investimentos.Properties.Resources.botao_anexar;
-            this.tsbCadastrar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbCadastrar.Name = "tsbCadastrar";
-            this.tsbCadastrar.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.tsbCadastrar.Size = new System.Drawing.Size(34, 24);
-            this.tsbCadastrar.Text = "Cadastrar";
-            this.tsbCadastrar.Click += new System.EventHandler(this.tsbCadastrar_Click);
-            // 
-            // tsbSalvar
-            // 
-            this.tsbSalvar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbSalvar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsbSalvar.Image = global::Controle_de_Investimentos.Properties.Resources.salvar_arquivos;
-            this.tsbSalvar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbSalvar.Name = "tsbSalvar";
-            this.tsbSalvar.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.tsbSalvar.Size = new System.Drawing.Size(34, 24);
-            this.tsbSalvar.Text = "Salvar";
-            // 
-            // tsbEditar
-            // 
-            this.tsbEditar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbEditar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsbEditar.Image = global::Controle_de_Investimentos.Properties.Resources.botao_editar;
-            this.tsbEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbEditar.Name = "tsbEditar";
-            this.tsbEditar.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.tsbEditar.Size = new System.Drawing.Size(34, 24);
-            this.tsbEditar.Text = "Editar";
-            // 
-            // tsbCancelar
-            // 
-            this.tsbCancelar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbCancelar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsbCancelar.Image = global::Controle_de_Investimentos.Properties.Resources.botao_cancelar;
-            this.tsbCancelar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbCancelar.Name = "tsbCancelar";
-            this.tsbCancelar.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.tsbCancelar.Size = new System.Drawing.Size(34, 24);
-            this.tsbCancelar.Text = "Cancelar";
-            this.tsbCancelar.Click += new System.EventHandler(this.tsbCancelar_Click);
             // 
             // toolStripSeparator1
             // 
@@ -419,17 +379,6 @@ namespace Controle_de_Investimentos
             this.tstBuscar.Name = "tstBuscar";
             this.tstBuscar.Size = new System.Drawing.Size(300, 25);
             this.tstBuscar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tstBuscar_KeyDown);
-            // 
-            // tsbPesquisar
-            // 
-            this.tsbPesquisar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbPesquisar.Image = global::Controle_de_Investimentos.Properties.Resources.botao_de_zoom;
-            this.tsbPesquisar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbPesquisar.Name = "tsbPesquisar";
-            this.tsbPesquisar.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.tsbPesquisar.Size = new System.Drawing.Size(34, 24);
-            this.tsbPesquisar.Text = "Pesquisar";
-            this.tsbPesquisar.Click += new System.EventHandler(this.tsbPesquisar_Click);
             // 
             // btnCancelar
             // 
@@ -463,6 +412,88 @@ namespace Controle_de_Investimentos
             this.btnSalvar.TabIndex = 28;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = false;
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 27);
+            // 
+            // tsbCadastrar
+            // 
+            this.tsbCadastrar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbCadastrar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsbCadastrar.Image = global::Controle_de_Investimentos.Properties.Resources.botao_anexar;
+            this.tsbCadastrar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbCadastrar.Name = "tsbCadastrar";
+            this.tsbCadastrar.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.tsbCadastrar.Size = new System.Drawing.Size(34, 24);
+            this.tsbCadastrar.Text = "Cadastrar";
+            this.tsbCadastrar.Click += new System.EventHandler(this.tsbCadastrar_Click);
+            // 
+            // tsbEditar
+            // 
+            this.tsbEditar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbEditar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsbEditar.Image = global::Controle_de_Investimentos.Properties.Resources.botao_editar;
+            this.tsbEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbEditar.Name = "tsbEditar";
+            this.tsbEditar.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.tsbEditar.Size = new System.Drawing.Size(34, 24);
+            this.tsbEditar.Text = "Editar";
+            // 
+            // tsbSalvar
+            // 
+            this.tsbSalvar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbSalvar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsbSalvar.Image = global::Controle_de_Investimentos.Properties.Resources.salvar_arquivos;
+            this.tsbSalvar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbSalvar.Name = "tsbSalvar";
+            this.tsbSalvar.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.tsbSalvar.Size = new System.Drawing.Size(34, 24);
+            this.tsbSalvar.Text = "Salvar";
+            // 
+            // tsbExcluir
+            // 
+            this.tsbExcluir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbExcluir.Image = global::Controle_de_Investimentos.Properties.Resources.remover_arquivo;
+            this.tsbExcluir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbExcluir.Name = "tsbExcluir";
+            this.tsbExcluir.Size = new System.Drawing.Size(24, 24);
+            this.tsbExcluir.Text = "Excluir";
+            // 
+            // tsbCancelar
+            // 
+            this.tsbCancelar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbCancelar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsbCancelar.Image = global::Controle_de_Investimentos.Properties.Resources.botao_cancelar;
+            this.tsbCancelar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbCancelar.Name = "tsbCancelar";
+            this.tsbCancelar.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.tsbCancelar.Size = new System.Drawing.Size(34, 24);
+            this.tsbCancelar.Text = "Cancelar";
+            this.tsbCancelar.Click += new System.EventHandler(this.tsbCancelar_Click);
+            // 
+            // tsbPesquisar
+            // 
+            this.tsbPesquisar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbPesquisar.Image = global::Controle_de_Investimentos.Properties.Resources.botao_de_zoom;
+            this.tsbPesquisar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbPesquisar.Name = "tsbPesquisar";
+            this.tsbPesquisar.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.tsbPesquisar.Size = new System.Drawing.Size(34, 24);
+            this.tsbPesquisar.Text = "Pesquisar";
+            this.tsbPesquisar.Click += new System.EventHandler(this.tsbPesquisar_Click);
+            // 
+            // tsbRecarregar
+            // 
+            this.tsbRecarregar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbRecarregar.Image = global::Controle_de_Investimentos.Properties.Resources.botao_voltar;
+            this.tsbRecarregar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbRecarregar.Name = "tsbRecarregar";
+            this.tsbRecarregar.Size = new System.Drawing.Size(24, 24);
+            this.tsbRecarregar.Text = "Recarregar";
+            this.tsbRecarregar.Click += new System.EventHandler(this.tsbRecarregar_Click);
             // 
             // SwingTrade
             // 
@@ -547,5 +578,8 @@ namespace Controle_de_Investimentos
         private System.Windows.Forms.ToolStripButton tsbPesquisar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnSalvar;
+        private System.Windows.Forms.ToolStripButton tsbExcluir;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripButton tsbRecarregar;
     }
 }

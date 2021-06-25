@@ -103,6 +103,26 @@ namespace Controle_de_Investimentos.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap botao_voltar {
+            get {
+                object obj = ResourceManager.GetObject("botao-voltar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap remover_arquivo {
+            get {
+                object obj = ResourceManager.GetObject("remover-arquivo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap salvar_arquivos {
             get {
                 object obj = ResourceManager.GetObject("salvar-arquivos", resourceCulture);

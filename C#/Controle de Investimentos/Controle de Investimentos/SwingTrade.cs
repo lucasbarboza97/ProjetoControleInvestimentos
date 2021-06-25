@@ -243,6 +243,11 @@ namespace Controle_de_Investimentos
             cancelar();
         }
 
+        private void tsbRecarregar_Click(object sender, EventArgs e)
+        {
+            carregaDataGrid(carregaGridMySql);
+        }
+
 
         /*********************** Classes ainda não utilizadas ***********************/
     }

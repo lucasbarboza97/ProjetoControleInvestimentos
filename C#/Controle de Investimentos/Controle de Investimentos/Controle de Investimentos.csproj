@@ -149,5 +149,11 @@
   <ItemGroup>
     <None Include="images\botao-de-zoom.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="images\remover-arquivo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\botao-voltar.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
