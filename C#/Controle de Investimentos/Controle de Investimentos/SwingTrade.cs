@@ -201,8 +201,85 @@ namespace Controle_de_Investimentos
             btnCancelar.Visible = true;
             novo = true;
         }
-        /*********************** Função para salvar os campos e enviar insert para o BD ***********************/
 
+        /*********************** Função para salvar os campos e enviar insert para o BD ***********************/
+        public void salvar()
+        {
+            if (novo)
+            {
+                string mySql = "INSERT INTO transacoes T JOIN acoes a ON(t.cod_acao=a.id)(a.codigo, t.data_compra, t.qtd_compra, t.valor_compra, t.data_venda, t.qtd_venda, t.valor_venda)"
+                      + "VALUES ('" + txtCodigoAcao.Text + "', '" + txt.Text + "', '"
+                      + mskCEP.Text + "', '" + txtBairro.Text
+                      + "', '" + txtCidade.Text + "', '" + txtUF.Text + "', '"
+                      + mskTelefone.Text + "')";
+
+                MySqlConnection con = new MySqlConnection();
+                con.ConnectionString = Properties.Settings.Default.connectionString;
+                MySqlCommand cmd = new MySqlCommand(mySql, con);
+                cmd.CommandType = CommandType.Text;
+                con.Open();
+                try
+                {
+                    int i = cmd.ExecuteNonQuery();
+                    if (i > 0)
+                        MessageBox.Show("Cadastro realizado com sucesso!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro: " + ex.ToString());
+                }
+                finally
+                {
+                    con.Close();
+                }
+            }
+            else
+            {
+                string mySql = "UPDATE CLIENTE SET nome='" + txtNome.Text + "',endereco = '" + txtEndereco.Text + "', " + "cep='" + mskCEP.Text + "', BAIRRO='" + txtBairro.Text + "',cidade = '" + txtCidade.Text + "', " + "uf='" + txtUF.Text + "', telefone='" + mskTelefone.Text + "' WHERE id=" + txtId.Text;
+
+                MySqlConnection con = new MySqlConnection();
+                con.ConnectionString = Properties.Settings.Default.connectionString;
+                MySqlCommand cmd = new MySqlCommand(mySql, con);
+                cmd.CommandType = CommandType.Text;
+                con.Open();
+                try
+                {
+                    int i = cmd.ExecuteNonQuery();
+                    if (i > 0)
+                        MessageBox.Show("Cadastro atualizado com sucesso!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Erro: " + ex.ToString());
+                }
+                finally
+                {
+                    con.Close();
+                }
+            }
+
+            tsbnovo.Enabled = true;
+            tsbSalvar.Enabled = false;
+            tsbCancelar.Enabled = false;
+            tsbExcluir.Enabled = false;
+            tstId.Enabled = true;
+            tsbBuscar.Enabled = true;
+            txtNome.Enabled = false;
+            txtEndereco.Enabled = false;
+            mskCEP.Enabled = false;
+            txtBairro.Enabled = false;
+            txtCidade.Enabled = false;
+            txtUF.Enabled = false;
+            mskTelefone.Enabled = false;
+            txtId.Text = "";
+            txtNome.Text = "";
+            txtEndereco.Text = "";
+            mskCEP.Text = "";
+            txtBairro.Text = "";
+            txtCidade.Text = "";
+            txtUF.Text = "";
+            mskTelefone.Text = "";
+        }
 
         /*********************** Classes padrões do form ***********************/
         private void SwingTrade_Load(object sender, EventArgs e)
@@ -246,6 +323,11 @@ namespace Controle_de_Investimentos
         private void tsbRecarregar_Click(object sender, EventArgs e)
         {
             carregaDataGrid(carregaGridMySql);
+        }
+
+        private void tsbSalvar_Click(object sender, EventArgs e)
+        {
+
         }
 
 
