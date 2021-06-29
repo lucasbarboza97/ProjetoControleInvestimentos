@@ -236,8 +236,12 @@ namespace Controle_de_Investimentos
             }
             else
             {
-                string mySql = "UPDATE CLIENTE SET nome='" + txtNome.Text + "',endereco = '" + txtEndereco.Text + "', " + "cep='" + mskCEP.Text + "', BAIRRO='" + txtBairro.Text + "',cidade = '" + txtCidade.Text + "', " + "uf='" + txtUF.Text + "', telefone='" + mskTelefone.Text + "' WHERE id=" + txtId.Text;
-
+                string mySql = "UPDATE transacoes SET " +
+                    "cod_acao=(SELECT a.id FROM transacoes t JOIN acoes a ON(a.id=t.cod_acao) WHERE a.codigo LIKE'" + txtCodigoAcao + "' GROUP BY a.id)"
+                    + mskDataCompra.Text + "', '"
+                                + txtQtdCompra.Text + "', '" + txtValorUnitarioCompra.Text
+                                + "', '" + mskDataVenda.Text + "', '" + txtQtdVenda.Text + "', '"
+                                + txtValorUnitarioVenda.Text + "')";
                 MySqlConnection con = new MySqlConnection();
                 con.ConnectionString = Properties.Settings.Default.connectionString;
                 MySqlCommand cmd = new MySqlCommand(mySql, con);
@@ -306,7 +310,7 @@ namespace Controle_de_Investimentos
 
         private void tsbSalvar_Click(object sender, EventArgs e)
         {
-
+            salvar();
         }
 
 
