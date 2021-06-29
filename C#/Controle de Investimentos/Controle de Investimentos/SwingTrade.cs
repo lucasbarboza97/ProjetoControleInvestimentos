@@ -207,11 +207,12 @@ namespace Controle_de_Investimentos
         {
             if (novo)
             {
-                string mySql = "INSERT INTO transacoes T JOIN acoes a ON(t.cod_acao=a.id)(a.codigo, t.data_compra, t.qtd_compra, t.valor_compra, t.data_venda, t.qtd_venda, t.valor_venda)"
-                      + "VALUES ('" + txtCodigoAcao.Text + "', '" + mskDataCompra.Text + "', '"
-                      + txtQtdCompra.Text + "', '" + txtValorUnitarioCompra.Text
-                      + "', '" + mskDataVenda.Text + "', '" + txtQtdVenda.Text + "', '"
-                      + txtValorUnitarioVenda.Text + "')";
+                string mySql = "INSERT INTO transacoes (cod_acao, cod_investidor, data_compra, qtd_compra, valor_compra, data_venda, qtd_venda, valor_venda)" 
+                                + "VALUES ((SELECT a.id FROM transacoes t JOIN acoes a ON(a.id=t.cod_acao) WHERE a.codigo LIKE'" 
+                                + txtCodigoAcao + "' GROUP BY a.id), '1', '" + mskDataCompra.Text + "', '"
+                                + txtQtdCompra.Text + "', '" + txtValorUnitarioCompra.Text
+                                + "', '" + mskDataVenda.Text + "', '" + txtQtdVenda.Text + "', '"
+                                + txtValorUnitarioVenda.Text + "')";
 
                 MySqlConnection con = new MySqlConnection();
                 con.ConnectionString = Properties.Settings.Default.connectionString;
@@ -257,28 +258,6 @@ namespace Controle_de_Investimentos
                     con.Close();
                 }
             }
-
-            tsbnovo.Enabled = true;
-            tsbSalvar.Enabled = false;
-            tsbCancelar.Enabled = false;
-            tsbExcluir.Enabled = false;
-            tstId.Enabled = true;
-            tsbBuscar.Enabled = true;
-            txtNome.Enabled = false;
-            txtEndereco.Enabled = false;
-            mskCEP.Enabled = false;
-            txtBairro.Enabled = false;
-            txtCidade.Enabled = false;
-            txtUF.Enabled = false;
-            mskTelefone.Enabled = false;
-            txtId.Text = "";
-            txtNome.Text = "";
-            txtEndereco.Text = "";
-            mskCEP.Text = "";
-            txtBairro.Text = "";
-            txtCidade.Text = "";
-            txtUF.Text = "";
-            mskTelefone.Text = "";
         }
 
         /*********************** Classes padrões do form ***********************/
