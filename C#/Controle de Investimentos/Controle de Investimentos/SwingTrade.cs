@@ -208,10 +208,10 @@ namespace Controle_de_Investimentos
             if (novo)
             {
                 string mySql = "INSERT INTO transacoes T JOIN acoes a ON(t.cod_acao=a.id)(a.codigo, t.data_compra, t.qtd_compra, t.valor_compra, t.data_venda, t.qtd_venda, t.valor_venda)"
-                      + "VALUES ('" + txtCodigoAcao.Text + "', '" + txt.Text + "', '"
-                      + mskCEP.Text + "', '" + txtBairro.Text
-                      + "', '" + txtCidade.Text + "', '" + txtUF.Text + "', '"
-                      + mskTelefone.Text + "')";
+                      + "VALUES ('" + txtCodigoAcao.Text + "', '" + mskDataCompra.Text + "', '"
+                      + txtQtdCompra.Text + "', '" + txtValorUnitarioCompra.Text
+                      + "', '" + mskDataVenda.Text + "', '" + txtQtdVenda.Text + "', '"
+                      + txtValorUnitarioVenda.Text + "')";
 
                 MySqlConnection con = new MySqlConnection();
                 con.ConnectionString = Properties.Settings.Default.connectionString;
