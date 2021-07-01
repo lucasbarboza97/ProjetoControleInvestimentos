@@ -18,7 +18,7 @@ namespace Controle_de_Investimentos
     {
         string carregaGridMySql = "SELECT a.codigo, t.data_compra, t.data_venda, t.id FROM transacoes t JOIN acoes a ON(t.cod_acao = a.id)";
         
-        bool novo;
+        private bool novo;
 
         public SwingTrade()
         {
@@ -93,7 +93,7 @@ namespace Controle_de_Investimentos
         }
 
         /*********************** Seleciona item no datagrid e exibe ao lado ***********************/
-        public void selecionaAtivo ()
+        private void selecionaAtivo ()
         {
             string idSelecionado = dataGridView1.CurrentRow.Cells[3].Value.ToString();
             
@@ -143,7 +143,7 @@ namespace Controle_de_Investimentos
         }
 
         /*********************** Função para pesquisar açoes pelo código ***********************/
-        public void pesquisar()
+        private void pesquisar()
         {
             string buscaPorCodigoAcaoMysql = "SELECT a.codigo, t.data_compra, t.data_venda, t.id FROM acoes a JOIN transacoes t ON(t.cod_acao = a.id) WHERE a.codigo LIKE '%" + tstBuscar.Text + "%';";
             dataGridView1.Rows.Clear();
@@ -153,7 +153,7 @@ namespace Controle_de_Investimentos
         }
 
         /*********************** Função para cancelar - Recarrega o load ***********************/
-        public void cancelar()
+        private void cancelar()
         {
             tsbPesquisar.Enabled = true;
             tstBuscar.Enabled = true;
@@ -166,7 +166,7 @@ namespace Controle_de_Investimentos
         }
 
         /*********************** Função para habilitar os campos e limpá-los para cadastrar uma nova transação ***********************/
-        public void cadastrar()
+        private void cadastrar()
         {
             dataGridView1.Rows.Clear();
 
@@ -203,7 +203,7 @@ namespace Controle_de_Investimentos
         }
 
         /*********************** Função para salvar os campos e enviar insert para o BD ***********************/
-        public void salvar()
+        private void salvar()
         {
             if (novo)
             {
